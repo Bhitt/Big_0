@@ -1,0 +1,48 @@
+O (big O): 
+	upper bound on the time (worst case)
+
+Ω (big omega):
+	lower bound on the time (best case)
+
+Θ (big theta):
+	both O and Ω . Tight bound on runtime. An algorithm is Θ(N) if it is both O(N) and Ω(N).
+
+Space Complexity:
+	Parallel to time complexity.
+	Note: just because you have n calls total doesn't always mean it takes O(n) space. Calls may
+	not exist simultaneously on the stack, so you could only need O(1) space.
+
+Drop Constants and Non-Dominant Terms:
+	Constants and lower terms are not as impactful on the runtime as the dominant term so they are
+	ignored.
+	Note: You may have a sum of terms in the runtime, such as O(B^2 + A), that cannot be reduced. In
+	this case, you keep both A and B terms in the runtime (unless later given a relationship between
+	the two, where it can then be reduced).
+
+Amortized Time:
+	An ArrayList, or a dynamically resizing array, allows you to have to have the benefits of an array
+	while offering flexibility in size. When the array hits capacity, the class will create a new
+	array with double the capacity and copy all the elements over to the new array.
+
+	How do you describe the runtime of insertion?
+
+	If full, the insertion takes O(N) time. However, this doesn't happen very often. Most insertions
+	will be O(1) time.
+
+	Amortized time describes these situations. X insertions takes O(2X) time. The amortized time for
+	each insertion is O(1).
+
+Log N Runtimes:
+	Binary search is a good example of log n runtime. We start with n elements to search. Then that
+	gets halved to n/2 elements. Then n/4 elements... Then eventually 1 element. This is expressed
+	as O(log n).
+
+	When you see a problem where the number of elements in the problem gets halved each time, that
+	will likely be O(log n) runtime.
+
+	Note: the base of the log doesn't matter for the purposes of big O.
+
+Recursive Runtimes:
+	When you have a recursive function that makes multiple calls, the runtime will often (but not 
+	always) look like O(branches ^ depth), where branches is the number of times each recursive call
+	branches. This will give us something like O(2 ^ N).
